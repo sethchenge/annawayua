@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdgeTech Solutions - EdgeTech Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #0a1929;
+            color: #fff;
+        }
+
+        header {
+            background: #1e88e5;
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color:green;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor:pointer;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #1e88e5;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        figure {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        figure:hover img {
+            transform: scale(1.1);
+        }
+
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(30, 136, 229, 0.9);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        article {
+            background: #1a2332;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h3 {
+            color: #1e88e5;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            background: #1a2332;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 2px solid #1e88e5;
+            border-radius: 5px;
+            font-family: inherit;
+            background: #0a1929;
+            color: #fff;
+        }
+
+        button {
+            background: #1e88e5;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #1565c0;
+        }
+
+        footer {
+            background: #1e88e5;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        address {
+            font-style: normal;
+            margin-top: 1rem;
+        }
+
+        strong {
+            color: #90caf9;
+        }
+
+        em {
+            color: #90caf9;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #1e88e5;
+                padding: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">💻 EdgeTech</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Welcome to EdgeTech Solutions</h1>
+            <p>Your <strong>trusted partner</strong> for cutting-edge technology services</p>
+            <p><em>Innovative solutions for your digital transformation!</em></p>
+        </section>
+
+        <section>
+            <h2>Our Technology Services</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="images/webdevelopement.jpg" alt="Web Development">
+                    <figcaption>Web Development</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/cloudimage.jpg" alt="Cloud Solutions">
+                    <figcaption>Cloud Solutions</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/Dataanalysis.png" alt="Data Analytics">
+                    <figcaption>Data Analytics</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/appdevelopement.jpg" alt="Mobile Apps">
+                    <figcaption>Mobile App Development</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section>
+            <h2>Why Choose EdgeTech?</h2>
+            <div class="services-grid">
+                <article>
+                    <h3>Expert Team</h3>
+                    <p>Our team consists of <strong>certified professionals</strong> with years of experience in cutting-edge technologies.</p>
+                    <hr>
+                    <p>Delivering excellence in every project.</p>
+                </article>
+                <article>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock <em>technical support</em> to ensure your systems run smoothly at all times.</p>
+                    <hr>
+                    <p>We're always here when you need us!</p>
+                </article>
+                <article>
+                    <h3>Scalable Solutions</h3>
+                    <p>From startups to enterprises, we provide solutions that grow with your business needs.</p>
+                    <hr>
+                    <p>Future-proof technology investments.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 EdgeTech Solutions. All rights reserved.</p>
+        <address>
+            <strong>Visit us:</strong> 456 Meru county, Innovation center<br>
+            <strong>Call:</strong> <a href="tel:+254702489163" style="color: #90caf9;">+254702489163</a>
+        </address>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
